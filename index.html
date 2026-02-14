@@ -2,64 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine Page</title>
+<title>Will You Be My Valentine?</title>
 <style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
-    font-family: Arial, sans-serif;
-  }
-  .card {
-    background: white;
-    padding: 40px 60px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  }
-  h1 {
-    margin-bottom: 30px;
-  }
-  button {
-    padding: 12px 24px;
-    margin: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  #yes {
-    background: #ff4d6d;
-    color: white;
-  }
-  #no {
-    background: #ccc;
-  }
-</style>
-</head>
-<body>
-
-<div class="card">
-  <h1>Will you be my Valentine?</h1>
-  <button id="yes" onclick="yesClick()">Yes</button>
-  <button id="no" onmouseover="moveNo()">No</button>
-</div>
-
-<script>
-function yesClick() {
-  document.body.innerHTML = "<h1 style='color:white'>Answer recorded: YES</h1>";
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
-function moveNo() {
-  const btn = document.getElementById("no");
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 80 + "%";
-  btn.style.top = Math.random() * 80 + "%";
+/* Card styles */
+.card {
+  background: white;
+  padding: 50px 70px 80px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(255, 154, 158, 0.3);
+  position: relative;
+  width: 380px;
+  animation: float 3s ease-in-out infinite;
 }
-</script>
 
-</body>
-</html>
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Cat + title */
+.cat {
+  font-size: 72px;
+  margin-bottom: 15px;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+h1 {
+  margin: 15px 0 30px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Buttons */
+.buttons {
+  position: relative;
+  height: 140px;
+}
+
+button {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#yes {
+  font-size: 32px;
+  padding: 20px 45px;
+  background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+  color: white;
+  transform: scale(1.2);
+  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+#yes:hover {
+  transform: scale(1.25);
+  box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+#no {
+  font-size: 16px;
+  padding: 12px 20px;
+  background: #f0f0f0;
+  color: #666;
+  position: absolute;
+  left: 220px;
+  top: 50px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#no:hover {
+  background: #e0e0e0;
+}
+
+/* Shy text */
+.shy {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  font-size: 15px;
+  color: #ff6b9d;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Final screen */
+.final-screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ff9a9e 0%, #ff4d6d 35%, #1a1a2e 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
+
+.final-text {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  animation: pop-in 1s ease-out forwards;
+}
+
+.final-text h2 {
+  font-size: 48px;
+  margin: 0 0 10px;
+}
+
+.final-text p {
+  font-size: 22px;
+  margin: 0;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Hearts for the burst */
+.hea
